@@ -29,12 +29,12 @@ public class UsersController {
         this.userService = userService;
     }
 
-    @GetMapping("/health_check")
+    @GetMapping("/users/health_check")
     public String status() {
-        return "lt's Working in User Service";
+        return String.format("lt's Working in User Service on PORT %s", env.getProperty("local.server.port"));
     }
 
-    @GetMapping("welcome")
+    @GetMapping("/welcome")
     public String welcome() {
         return env.getProperty("greeting.message"); // application.yml 선언한 message 호출
         //return greeting.getMessage();
